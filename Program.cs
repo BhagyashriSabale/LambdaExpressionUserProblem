@@ -4,17 +4,17 @@ namespace LambdaExpressionUserProblem
 {
     internal class Program
     {
-        public static bool ValidateFirstName(string firstName)
-        {
-            return Regex.IsMatch(firstName, @"^[A-Z][a-zA-Z]{2,}$");
-        }
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome Lambda Expression Problem");
             Console.Write("Enter a valid First Name: ");
             string firstName = Console.ReadLine();
-            bool isFirstNameValid = ValidateFirstName(firstName);
+            bool isFirstNameValid = UserValidation.ValidateFirstName(firstName);
             Console.WriteLine("First Name is " + (isFirstNameValid ? "valid" : "invalid"));
+            Console.Write("Enter a valid Last Name: ");
+            string lastName = Console.ReadLine();
+            bool isLastNameValid = UserValidation.ValidateLastName(lastName);
+            Console.WriteLine("Last Name is " + (isLastNameValid ? "valid" : "invalid"));
         }
     }
 }
