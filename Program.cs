@@ -50,6 +50,16 @@ namespace LambdaExpressionUserProblem
             validationTests1.InvalidEmailTest();
             validationTests1.InvalidMobileNumberTest();
             validationTests1.InvalidPasswordTest();
+
+            Console.WriteLine("Running lambda function validation...");
+
+            UserValidation.ValidateFirstName("John");
+            UserValidation.ValidateLastName("Doe");
+            UserValidation.ValidateEmail("john.doe@example.com");
+            UserValidation.ValidateMobileNumber("91 9919819801");
+            UserValidation.ValidatePassword("Password123!");
+
+            Console.WriteLine("All entries are valid.");
         }
     }
 }
