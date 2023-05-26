@@ -42,6 +42,14 @@ namespace LambdaExpressionUserProblem
             validationTests.HappyTestCases();
             validationTests.SadTestCases();
             validationTests.EmailParameterizedTest("john.doe@example.com", true);
+
+            Console.WriteLine("Running custom exception tests...");
+            UserValidationTests validationTests1 = new UserValidationTests();
+            validationTests1.InvalidFirstNameTest();
+            validationTests1.InvalidLastNameTest();
+            validationTests1.InvalidEmailTest();
+            validationTests1.InvalidMobileNumberTest();
+            validationTests1.InvalidPasswordTest();
         }
     }
 }

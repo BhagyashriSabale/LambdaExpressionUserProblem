@@ -11,40 +11,68 @@ namespace LambdaExpressionUserProblem
     {
         public static bool ValidateFirstName(string firstName)
         {
-            return Regex.IsMatch(firstName, @"^[A-Z][a-zA-Z]{2,}$");
+            if (!Regex.IsMatch(firstName, @"^[A-Z][a-zA-Z]{2,}$"))
+            {
+                throw new InvalidFirstNameException("Invalid First Name");
+            }
+            return true;
         }
         public static bool ValidateLastName(string lastName)
         {
-            return Regex.IsMatch(lastName, @"^[A-Z][a-zA-Z]{2,}$");
+            if (!Regex.IsMatch(lastName, @"^[A-Z][a-zA-Z]{2,}$"))
+            {
+                throw new InvalidLastNameException("Invalid Last Name");
+            }
+            return true;
         }
         public static bool ValidateEmail(string email)
         {
-            return Regex.IsMatch(email, @"^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})*(\.[a-zA-Z]{2,6})$");
+            if (!Regex.IsMatch(email, @"^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})*(\.[a-zA-Z]{2,6})$"))
+            {
+                throw new InvalidEmailException("Invalid Email");
+            }
+            return true;
         }
         public static bool ValidatePassword(string password)
         {
             if (password.Length < 8)
-                return false;
+            {
+                throw new InvalidPasswordException("Invalid Password");
+            }
+            return true;
 
             if (!Regex.IsMatch(password, @"[A-Z]"))
-                return false;
+            {
+                throw new InvalidPasswordException("Invalid Password");
+            }
+            return true;
 
             if (!Regex.IsMatch(password, @"\d"))
-                return false;
+            {
+                throw new InvalidPasswordException("Invalid Password");
+            }
+            return true;
 
             if (!Regex.IsMatch(password, @"[!@#$%^&*(),.?""':{}|<>]"))
-                return false;
-
+            {
+                throw new InvalidPasswordException("Invalid Password");
+            }
             return true;
         }
         public static bool ValidateMobileNumber(string mobileNumber)
         {
-            return Regex.IsMatch(mobileNumber, @"^91 [1-9]\d{9}$");
+            if (!Regex.IsMatch(mobileNumber, @"^91 [1-9]\d{9}$"))
+            {
+                throw new InvalidMobileNumberException("Invalid Mobile Number");
+            }
+            return true;
         }
+
         public static void ClearEmailSamples(string text)
         {
             string cleanedText = Regex.Replace(text, @"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b", "");
             Console.WriteLine(cleanedText);
         }
+        
     }
 }

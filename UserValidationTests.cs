@@ -50,7 +50,6 @@ namespace LambdaExpressionUserProblem
             bool isMobileNumberValid = UserValidation.ValidateMobileNumber("9919819801");
             Assert.IsFalse(isMobileNumberValid);
 
-
             // Use case 5: Invalid Password (less than 8 characters)
             bool isPasswordValid = UserValidation.ValidatePassword("abcd123");
             Assert.IsFalse(isPasswordValid);
@@ -60,6 +59,7 @@ namespace LambdaExpressionUserProblem
             bool isEmailValid = UserValidation.ValidateEmail(email);
             Assert.AreEqual(expectedResult, isEmailValid);
         }
+
         private static IEnumerable<TestCaseData> EmailTestCases()
         {
             yield return new TestCaseData("john.doe@example.com", true);
@@ -68,6 +68,30 @@ namespace LambdaExpressionUserProblem
             yield return new TestCaseData("jane.smith@example..com", false); // Invalid email with consecutive dots
             yield return new TestCaseData("john.doe@.com", false); // Invalid email with missing domain name
             yield return new TestCaseData("jane.smith@example.com.", false); // Invalid email with trailing dot
+        }
+        public void InvalidFirstNameTest()
+        {
+            Assert.Throws<InvalidFirstNameException>(() => UserValidation.ValidateFirstName("ab"));
+        }
+        public void InvalidLastNameTest()
+        {
+            Assert.Throws<InvalidLastNameException>(() => UserValidation.ValidateLastName("cd"));
+        }
+
+        [Test]
+        public void InvalidEmailTest()
+        {
+            Assert.Throws<InvalidEmailException>(() => UserValidation.ValidateEmail("invalidemail"));
+        }
+        public void InvalidMobileNumberTest()
+        {
+            Assert.Throws<InvalidMobileNumberException>(() => UserValidation.ValidateMobileNumber("1234567890"));
+        }
+
+        [Test]
+        public void InvalidPasswordTest()
+        {
+            Assert.Throws<InvalidPasswordException>(() => UserValidation.ValidatePassword("password"));
         }
 
 
