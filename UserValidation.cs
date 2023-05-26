@@ -21,5 +21,22 @@ namespace LambdaExpressionUserProblem
         {
             return Regex.IsMatch(email, @"^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})*(\.[a-zA-Z]{2,6})$");
         }
+        public static bool ValidatePassword(string password)
+        {
+            if (password.Length < 8)
+                return false;
+
+            if (!Regex.IsMatch(password, @"[A-Z]"))
+                return false;
+
+            if (!Regex.IsMatch(password, @"\d"))
+                return false;
+
+            if (!Regex.IsMatch(password, @"[!@#$%^&*(),.?""':{}|<>]"))
+                return false;
+
+            return true;
+        }
+
     }
 }

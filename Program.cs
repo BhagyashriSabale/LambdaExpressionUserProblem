@@ -21,6 +21,10 @@ namespace LambdaExpressionUserProblem
             string email = Console.ReadLine();
             bool isEmailValid = UserValidation.ValidateEmail(email);
             Console.WriteLine("Email is " + (isEmailValid ? "valid" : "invalid"));
+            Console.Write("Enter a valid Password: ");
+            string password = Console.ReadLine();
+            bool isPasswordValid = UserValidation.ValidatePassword(password);
+            Console.WriteLine("Password is " + (isPasswordValid ? "valid" : "invalid"));
         }
     }
 }
