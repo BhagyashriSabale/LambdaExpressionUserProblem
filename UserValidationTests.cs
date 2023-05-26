@@ -55,6 +55,20 @@ namespace LambdaExpressionUserProblem
             bool isPasswordValid = UserValidation.ValidatePassword("abcd123");
             Assert.IsFalse(isPasswordValid);
         }
+        public void EmailParameterizedTest(string email, bool expectedResult)
+        {
+            bool isEmailValid = UserValidation.ValidateEmail(email);
+            Assert.AreEqual(expectedResult, isEmailValid);
+        }
+        private static IEnumerable<TestCaseData> EmailTestCases()
+        {
+            yield return new TestCaseData("john.doe@example.com", true);
+            yield return new TestCaseData("jane.smith@example.com", true);
+            yield return new TestCaseData("john.doe@example", false); // Invalid email without top-level domain
+            yield return new TestCaseData("jane.smith@example..com", false); // Invalid email with consecutive dots
+            yield return new TestCaseData("john.doe@.com", false); // Invalid email with missing domain name
+            yield return new TestCaseData("jane.smith@example.com.", false); // Invalid email with trailing dot
+        }
 
 
     }

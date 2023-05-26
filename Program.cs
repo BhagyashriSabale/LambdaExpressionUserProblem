@@ -41,6 +41,7 @@ namespace LambdaExpressionUserProblem
             UserValidationTests validationTests = new UserValidationTests();
             validationTests.HappyTestCases();
             validationTests.SadTestCases();
+            validationTests.EmailParameterizedTest("john.doe@example.com", true);
         }
     }
 }
