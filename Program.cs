@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace LambdaExpressionUserProblem
 {
@@ -15,6 +16,11 @@ namespace LambdaExpressionUserProblem
             string lastName = Console.ReadLine();
             bool isLastNameValid = UserValidation.ValidateLastName(lastName);
             Console.WriteLine("Last Name is " + (isLastNameValid ? "valid" : "invalid"));
+
+            Console.Write("Enter a valid Email: ");
+            string email = Console.ReadLine();
+            bool isEmailValid = UserValidation.ValidateEmail(email);
+            Console.WriteLine("Email is " + (isEmailValid ? "valid" : "invalid"));
         }
     }
 }

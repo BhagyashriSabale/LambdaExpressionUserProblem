@@ -17,5 +17,9 @@ namespace LambdaExpressionUserProblem
         {
             return Regex.IsMatch(lastName, @"^[A-Z][a-zA-Z]{2,}$");
         }
+        public static bool ValidateEmail(string email)
+        {
+            return Regex.IsMatch(email, @"^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})*(\.[a-zA-Z]{2,6})$");
+        }
     }
 }
