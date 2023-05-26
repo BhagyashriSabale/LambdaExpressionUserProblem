@@ -25,6 +25,10 @@ namespace LambdaExpressionUserProblem
             string password = Console.ReadLine();
             bool isPasswordValid = UserValidation.ValidatePassword(password);
             Console.WriteLine("Password is " + (isPasswordValid ? "valid" : "invalid"));
+            Console.Write("Enter a valid Mobile Number: ");
+            string mobileNumber = Console.ReadLine();
+            bool isMobileNumberValid = UserValidation.ValidateMobileNumber(mobileNumber);
+            Console.WriteLine("Mobile Number is " + (isMobileNumberValid ? "valid" : "invalid"));
         }
     }
 }

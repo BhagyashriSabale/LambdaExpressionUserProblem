@@ -37,6 +37,9 @@ namespace LambdaExpressionUserProblem
 
             return true;
         }
-
+        public static bool ValidateMobileNumber(string mobileNumber)
+        {
+            return Regex.IsMatch(mobileNumber, @"^91 [1-9]\d{9}$");
+        }
     }
 }
