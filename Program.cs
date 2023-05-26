@@ -29,6 +29,9 @@ namespace LambdaExpressionUserProblem
             string mobileNumber = Console.ReadLine();
             bool isMobileNumberValid = UserValidation.ValidateMobileNumber(mobileNumber);
             Console.WriteLine("Mobile Number is " + (isMobileNumberValid ? "valid" : "invalid"));
+            Console.WriteLine("Enter a text containing email samples:");
+            string text = Console.ReadLine();
+            UserValidation.ClearEmailSamples(text);
         }
     }
 }

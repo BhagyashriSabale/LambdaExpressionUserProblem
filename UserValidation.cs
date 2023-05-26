@@ -41,5 +41,10 @@ namespace LambdaExpressionUserProblem
         {
             return Regex.IsMatch(mobileNumber, @"^91 [1-9]\d{9}$");
         }
+        public static void ClearEmailSamples(string text)
+        {
+            string cleanedText = Regex.Replace(text, @"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b", "");
+            Console.WriteLine(cleanedText);
+        }
     }
 }
